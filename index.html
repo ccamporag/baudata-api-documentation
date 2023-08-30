@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Documentation</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>BauData API Documentation V 1.0</h1>
+    <!-- <p>Welcome to the comprehensive documentation of our API. Here you'll find everything you need to know to integrate with our services.</p> -->
+  </header>
+
+  <!-- <nav>
+    <ul>
+      <li><a href="#endpoints">Endpoints</a></li>
+      <li><a href="#parameters">Parameters</a></li>
+      <li><a href="#response">Response</a></li>
+      <li><a href="#errors">Errors</a></li>
+    </ul>
+  </nav> -->
+
+  <main>
+    <section id="endpoints">
+      <h2>Endpoints</h2>
+      <article class="endpoint">
+        <h3>/permiso</h3>
+        <p>Retrieve information about an individual PE by its id</p>
+        <pre><code>GET /permiso?id=ID_PE</code></pre>
+        <p>Python Example:</p>
+        <pre><code>import requests
+APITOKEN = 'MY-API-TOKEN'
+params = {"id": 7000}
+headers = {'Authorization':APITOKEN}
+response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/permiso", params=params, headers = headers)
+print(response.json())
+        </code></pre>
+
+        <pre><code>
+        [
+            {
+                "id_permiso": 7000,
+                "permiso": "PE 14-2021",
+                "fecha_ingreso": "2021-05-29T03:36:10.000",
+                "fecha_permiso": "2021-02-09T00:00:00.000",
+                "latitude": -37.43976,
+                "longitude": -72.3381,
+                "region": "REGION DEL BIO BIO",
+                "comuna": "LOS ANGELES",
+                "direccion_obra": "DOCTOR MANUEL RIOSECO 900",
+                "propietario": "INMOBILIARIA E INVERSIONES PARQUE AVELLANO LTDA",
+                "rep_legal_del_propietario": "CARLOS ESCALONA TRONCOSO / WALDO TERAN MATAMALA",
+                "inmobiliaria": null,
+                "inmobiliaria_matriz": "INMOBILIARIA PARQUE AVELLANO LTDA",
+                "constructora": "SOCIEDAD CONSTRUCTORA SAN AGUSTÍN LTDA",
+                "arquitecto": "LORENZO ENRIQUE FLUXA HARMS",
+                "nombre_proyecto": "PARQUE LAGUNA VERDE II",
+                "renta": "NO",
+                "destino_final": "VIVIENDA",
+                "fecha_inicio": "2021-04-14T00:00:00.000",
+                "fecha_entrega": null,
+                "tipo_vivienda": "DEPARTAMENTO",
+                "conjunto": "CONDOMINIO",
+                "n_deptos_viv": 96.0,
+                "sup_m2_viv": 7529.71,
+                "sup_desde": 70.0,
+                "sup_hasta": 90.0,
+                "uf_desde": 3790.0,
+                "uf_hasta": 4700.0,
+                "habitaciones_desde": 2,
+                "habitaciones_hasta": 3,
+                "banos_desde": 2,
+                "banos_hasta": null,
+                "tipo_permiso": "PE",
+                "n_locales_comerciales": null,
+                "n_oficinas": null,
+                "sup_terreno": 5004.43,
+                "sup_construida": 9274.14,
+                "n_pisos": 9,
+                "estacionamientos": 97,
+                "presupuesto_mm_clp": 1829.8,
+                "otros_espacios_construidos": "97 BODEGAS ",
+                "rol_sii": "1503-806",
+                "dfl2": "SI",
+                "ds19": null,
+                "vivienda_social": null,
+                "tiene_ap_aprobado": "NO",
+                "n_anteproyecto": null,
+                "fecha_ap": null,
+                "estado_obra_ultima_visita": "TERMINADO",
+                "fecha_visita_obra": "2023-04-15T00:00:00.000",
+                "fecha_no_iniciado": "2021-02-09T00:00:00.000",
+                "fecha_excavaciones": "2021-06-17T00:00:00.000",
+                "fecha_fundaciones": null,
+                "fecha_obra_gruesa": "2022-02-21T00:00:00.000",
+                "fecha_terminaciones": "2022-06-24T00:00:00.000",
+                "fecha_terminado": "2023-04-15T00:00:00.000",
+                "pdf_permiso": "https://baudata.s3-sa-east-1.amazonaws.com/pdf/2021-05-29 03:36:16 N55-02-2021-PERMISO-EDIFICACION-Nº14.pdf",
+                "url_proyecto": "https://www.parqueavellano.cl/parque-laguna-verde-2.php"
+            }
+        ]
+        </code></pre>
+
+        <h3>/anteproyecto</h3>
+        <p>Retrieve information about an individual AP by its id</p>
+        <pre><code>GET /anteproyecto?id=ID_AP</code></pre>
+        <p>Python Example:</p>
+        <pre><code>import requests
+APITOKEN = 'MY-API-TOKEN'
+params = {"id": 5454}
+headers = {'Authorization': APITOKEN}
+response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/anteproyecto", params=params, headers = headers)
+print(response.json())
+        </code></pre>
+        <p>Output</p>
+        <pre><code>
+        [
+            {
+                "id_permiso": 5454,
+                "permiso": "AP 126-2019",
+                "fecha_ingreso": "2021-01-28T20:23:02.000",
+                "fecha_permiso": "2019-10-18T00:00:00.000",
+                "latitude": -33.4941460967,
+                "longitude": -70.6172343519,
+                "region": "REGION METROPOLITANA",
+                "comuna": "SAN JOAQUIN",
+                "direccion_obra": "AVENIDA VICUÑA MACKENNA  4455",
+                "propietario": null,
+                "rep_legal_del_propietario": "ENRIQUE DARIO CONTRERAS TERFER",
+                "inmobiliaria": null,
+                "inmobiliaria_matriz": null,
+                "constructora": null,
+                "arquitecto": "PABLO  TALHOUK/ANDRES NICOLAS BRIONES GONZALEZ/MAURICIO LLAUMETT LETTURA",
+                "nombre_proyecto": null,
+                "destino_final": "VIVIENDA / COMERCIO",
+                "tipo_vivienda": null,
+                "conjunto": null,
+                "n_deptos_viv": 432.0,
+                "sup_m2_viv": 53246.57,
+                "tipo_permiso": "AP",
+                "n_locales_comerciales": 1,
+                "n_oficinas": null,
+                "sup_terreno": null,
+                "sup_construida": 81411.45,
+                "n_pisos": null,
+                "estacionamientos": 807,
+                "otros_espacios_construidos": "1 CENTRO COMERCIAL Y APART-HOTEL",
+                "rol_sii": "3600-2/1",
+                "dfl2": null,
+                "ds19": null,
+                "pdf_permiso": "https://baudata.s3-sa-east-1.amazonaws.com/pdf/2021-01-28 20:23:10 SAN JOAQUIN_AP-126-2019.pdf"
+            }
+        ]
+        </code></pre>
+
+        <h3>/permisos</h3>
+        <p>Retrieve information about PE in a time window</p>
+        <pre><code>GET /permisos?fecha_ingreso_desde=YYYY-MM-DD&fecha_ingreso_hasta=YYYY-MM-DD&fecha_permiso_desde=YYYY-MM-DD&fecha_permiso_hasta=YYYY-MM-DD</code></pre>
+        <p><b>Params: </b></p>
+        <br/>
+        <p>fecha_ingreso_desde: Date of entry into the baudata database (from) in YYYY-MM-DD format. Default is 2020-01-01.</p>
+        <p>fecha_ingreso_hasta: Date of entry into the baudata database (up to) in YYYY-MM-DD format. Default is today.</p>
+        <p>fecha_permiso_desde: Building permit date (from) in YYYY-MM-DD format. Default is 60 days ago.</p>
+        <p>fecha_permiso_desde: Building permit date (up to) in YYYY-MM-DD format. Default is today.</p>
+        <br/>
+        <p>Python Example:</p>
+        <pre><code>import requests
+APITOKEN = 'MY-API-TOKEN'
+params = {"fecha_permiso_desde": "2023-07-01", "fecha_permiso_hasta": "2023-07-15"}
+headers = {'Authorization': APITOKEN}
+response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/permisos", params=params, headers = headers)
+print(response.json())
+        </code></pre>
+
+
+        <h3>/anteproyectos</h3>
+        <p>Retrieve information about AP in a time window</p>
+        <pre><code>GET /anteproyectos?fecha_ingreso_desde=YYYY-MM-DD&fecha_ingreso_hasta=YYYY-MM-DD&fecha_permiso_desde=YYYY-MM-DD&fecha_permiso_hasta=YYYY-MM-DD</code></pre>
+        <p><b>Params: </b></p>
+        <br/>
+        <p>fecha_ingreso_desde: Date of entry into the baudata database (from) in YYYY-MM-DD format. Default to 2020-01-01.</p>
+        <p>fecha_ingreso_hasta: Date of entry into the baudata database (up to) in YYYY-MM-DD format. Default today.</p>
+        <p>fecha_permiso_desde: Building permit date (from) in YYYY-MM-DD format. Default to 60 days ago.</p>
+        <p>fecha_permiso_desde: Building permit date (up to) in YYYY-MM-DD format. Default today.</p>
+        <br/>
+        <p>Python Example:</p>
+        <pre><code>import requests
+APITOKEN = 'MY-API-TOKEN'
+params = {"fecha_permiso_desde": "2023-07-01", "fecha_permiso_hasta": "2023-07-15"}
+headers = {'Authorization': APITOKEN}
+response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/anteproyectos", params=params, headers = headers)
+print(response.json())
+        </code></pre>
+
+
+        <h3>/constructoras</h3>
+        <p>Retrieve information about contractors</p>
+        <pre><code>GET /constructoras?n=N</code></pre>
+        <p><b>Params: </b></p>
+        <br/>
+        <p>n: Number of contractors to retrieve. The contractors are ordered by square meters of building permits, for example, n = 10 will return the top 10 contractors in the database. Default is n = 100000</p>
+        <br/>
+        <p>Python Example:</p>
+        <pre><code>import requests
+APITOKEN = 'MY-API-TOKEN'
+params = {"n": 10}
+headers = {'Authorization': APITOKEN}
+response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/constructoras", params=params, headers = headers)
+print(response.json())
+        </code></pre>
+
+        <h3>/contactos_constructoras</h3>
+        <p>Retrieve contact information about all contractor in the database</p>
+        <pre><code>GET /contactos_constructoras</code></pre>
+        <p><b>Params: no params</b></p>
+        <br/>
+        <p>Python Example:</p>
+        <pre><code>import requests
+APITOKEN = 'MY-API-TOKEN'
+headers = {'Authorization': APITOKEN}
+response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/contactos_constructoras", headers = headers)
+print(response.json())
+        </code></pre>
+
+
+        <h3>/constructora</h3>
+        <p>Retrieve information about a contractor by its id</p>
+        <pre><code>GET /constructora?id_constructora=ID</code></pre>
+        <p><b>Params: </b></p>
+        <br/>
+        <p>id_constructora: id of the contractor (integer)</p>
+        <br/>
+        <p>Python Example:</p>
+        <pre><code>import requests
+APITOKEN = 'MY-API-TOKEN'
+params = {"id_constructora": 7}
+headers = {'Authorization': APITOKEN}
+response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/constructora", params=params, headers = headers)
+print(response.json())
+        </code></pre>
+
+        <h3>/contactos_constructora</h3>
+        <p>Retrieve contact information about a contractor by its id</p>
+        <pre><code>GET /contactos_constructora?id_constructora=ID</code></pre>
+        <p><b>Params: </b></p>
+        <br/>
+        <p>id_constructora: id of the contractor (integer)</p>
+        <br/>
+        <p>Python Example:</p>
+        <pre><code>import requests
+APITOKEN = 'MY-API-TOKEN'
+params = {"id_constructora": 7}
+headers = {'Authorization': APITOKEN}
+response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/contactos_constructora", params=params, headers = headers)
+print(response.json())
+        </code></pre>
+
+
+
+
+
+        <h3>/inmobiliarias</h3>
+        <p>Retrieve information about developers</p>
+        <pre><code>GET /inmobiliarias?n=N</code></pre>
+        <p><b>Params: </b></p>
+        <br/>
+        <p>n: Number of real state developers to retrieve. The developers are ordered by square meters of building permits, for example, n = 10 will return the top 10 developers in the database. Default is n = 100000</p>
+        <br/>
+        <p>Python Example:</p>
+        <pre><code>import requests
+APITOKEN = 'MY-API-TOKEN'
+params = {"n": 10}
+headers = {'Authorization': APITOKEN}
+response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/inmobiliarias", params=params, headers = headers)
+print(response.json())
+        </code></pre>
+
+        <h3>/contactos_inmobiliarias</h3>
+        <p>Retrieve contact information about all developers in the database</p>
+        <pre><code>GET /contactos_inmobiliarias</code></pre>
+        <p><b>Params: no params</b></p>
+        <br/>
+        <p>Python Example:</p>
+        <pre><code>import requests
+APITOKEN = 'MY-API-TOKEN'
+headers = {'Authorization': APITOKEN}
+response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/contactos_inmobiliarias", headers = headers)
+print(response.json())
+        </code></pre>
+
+
+        <h3>/inmobiliaria</h3>
+        <p>Retrieve information about a real state developer by its id</p>
+        <pre><code>GET /inmobiliaria?id_inmobiliaria=ID</code></pre>
+        <p><b>Params: </b></p>
+        <br/>
+        <p>id_inmobiliaria: id of the developer (integer)</p>
+        <br/>
+        <p>Python Example:</p>
+        <pre><code>import requests
+APITOKEN = 'MY-API-TOKEN'
+params = {"id_inmobiliaria": 50}
+headers = {'Authorization': APITOKEN}
+response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/inmobiliaria", params=params, headers = headers)
+print(response.json())
+        </code></pre>
+
+        <h3>/contactos_inmobiliaria</h3>
+        <p>Retrieve contact information about a real state developer by its id</p>
+        <pre><code>GET /contactos_inmobiliaria?id_inmobiliaria=ID</code></pre>
+        <p><b>Params: </b></p>
+        <br/>
+        <p>id_inmobiliaria: id of the developer (integer)</p>
+        <br/>
+        <p>Python Example:</p>
+        <pre><code>import requests
+APITOKEN = 'MY-API-TOKEN'
+params = {"id_inmobiliaria": 50}
+headers = {'Authorization': APITOKEN}
+response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/contactos_inmobiliaria", params=params, headers = headers)
+print(response.json())
+        </code></pre>
+
+
+      </article>
+      <!-- Add more endpoints as needed -->
+    </section>
+
+    <!-- Rest of the sections... -->
+
+  </main>
+
+  <footer>
+    <img src="https://baudata.s3.sa-east-1.amazonaws.com/logo_baudata_svg.svg" alt="BauData" width="150">
+    <p>&copy; 2023 BauData. All rights reserved.</p>
+  </footer>
+</body>
+</html>
