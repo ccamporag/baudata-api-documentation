@@ -322,6 +322,38 @@ response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/
 print(response.json())
         </code></pre>
 
+        <h3>/arquitectos</h3>
+        <p>Retrieve contact information about architects</p>
+        <pre><code>GET /arquitectos</code></pre>
+        <p><b>Params: </b></p>
+        <br/>
+        <p>n: Number of architects ordered by square meters of PE (integer)</p>
+        <br/>
+        <p>Python Example:</p>
+        <pre><code>import requests
+APITOKEN = 'MY-API-TOKEN'
+params = {"n": 50}
+headers = {'Authorization': APITOKEN}
+response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/arquitectos", params=params, headers = headers)
+print(response.json())
+        </code></pre>
+
+        <h3>/arquitecto</h3>
+        <p>Retrieve contact information about an architect</p>
+        <pre><code>GET /arquitecto</code></pre>
+        <p><b>Params: </b></p>
+        <br/>
+        <p>id_arquitecto: id of the architect</p>
+        <br/>
+        <p>Python Example:</p>
+        <pre><code>import requests
+APITOKEN = 'MY-API-TOKEN'
+params = {"id_arquitecto": 250}
+headers = {'Authorization': APITOKEN}
+response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/arquitecto", params=params, headers = headers)
+print(response.json())
+        </code></pre>
+
 
       </article>
       <!-- Add more endpoints as needed -->
