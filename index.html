@@ -355,6 +355,22 @@ response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/
 print(response.json())
         </code></pre>
 
+        <h3>/imagenes</h3>
+        <p>Retrieve images from a given PE</p>
+        <pre><code>GET /imagenes</code></pre>
+        <p><b>Params: </b></p>
+        <br/>
+        <p>id_permiso: id of the PE</p>
+        <br/>
+        <p>Python Example:</p>
+        <pre><code>import requests
+APITOKEN = 'MY-API-TOKEN'
+params = {"id_permiso": 7000}
+headers = {'Authorization': APITOKEN}
+response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/imagenes", params=params, headers = headers)
+print(response.json())
+        </code></pre>
+
 
       </article>
       <!-- Add more endpoints as needed -->
