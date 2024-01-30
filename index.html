@@ -10,6 +10,7 @@
 <body>
   <header>
     <h1>BauData API Documentation V 1.0</h1>
+    <h3>Request your API token at contacto@baudata.cl</h3>
     <!-- <p>Welcome to the comprehensive documentation of our API. Here you'll find everything you need to know to integrate with our services.</p> -->
   </header>
 
@@ -23,6 +24,9 @@
   </nav> -->
 
   <main>
+
+
+
     <section id="endpoints">
       <h2>Endpoints</h2>
       <article class="endpoint">
@@ -370,6 +374,192 @@ headers = {'Authorization': APITOKEN}
 response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/imagenes", params=params, headers = headers)
 print(response.json())
         </code></pre>
+
+
+
+        <h3>/inmobiliaria_permiso</h3>
+        <p>'id_permiso' and 'id_inmobiliaria' from a given PE o AP. This endpoint maps columns id_permiso and 'inmobiliaria' from database</p>
+        <pre><code>GET /inmobiliaria_permiso</code></pre>
+        <p><b>Params: </b></p>
+        <br/>
+        <p>id_permiso: id of the PE or AP</p>
+        <br/>
+        <p>Python Example:</p>
+        <pre><code>import requests
+APITOKEN = 'MY-API-TOKEN'
+params = {"id_permiso": 7000}
+headers = {'Authorization': APITOKEN}
+response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/inmobiliaria_permiso", params=params, headers = headers)
+print(response.json())
+        </code></pre>
+
+
+
+
+        <h3>/inmobiliarias_permiso</h3>
+        <p>'id_permiso' and 'inmobiliaria' records between two dates in database. The dates are either the creation date or the update date of the record.</p>
+        <pre><code>GET /inmobiliarias_permiso</code></pre>
+        <p><b>Params: </b></p>
+        <br/>
+        <p>fecha_desde: Date from in YYYY-MM-DD format. Default 60 days ago</p>
+        <p>fecha_hasta: Date up to, in YYYY-MM-DD format. Default today.</p>
+        <br/>
+        <p>Python Example:</p>
+        <pre><code>import requests
+APITOKEN = 'MY-API-TOKEN'
+params = {"fecha_desde": "2023-06-01", "fecha_hasta": "2023-07-01"}
+headers = {'Authorization': APITOKEN}
+response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/inmobiliarias_permiso", params=params, headers = headers)
+print(response.json())
+        </code></pre>
+
+
+
+        <h3>/inmobiliaria_matriz</h3>
+        <p>'id_permiso' and 'id_inmobiliaria' from a given PE o AP. This endpoint maps columns id_permiso and 'inmobiliaria_matriz' from database</p>
+        <pre><code>GET /inmobiliaria_matriz</code></pre>
+        <p><b>Params: </b></p>
+        <br/>
+        <p>id_permiso: id of the PE or AP</p>
+        <br/>
+        <p>Python Example:</p>
+        <pre><code>import requests
+APITOKEN = 'MY-API-TOKEN'
+params = {"id_permiso": 7000}
+headers = {'Authorization': APITOKEN}
+response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/inmobiliaria_matriz", params=params, headers = headers)
+print(response.json())
+        </code></pre>
+
+
+        <h3>/inmobiliarias_matriz</h3>
+        <p>'id_permiso' and 'inmobiliaria_matriz' records between two dates in database. The dates are either the creation date or the update date of the record.</p>
+        <pre><code>GET /inmobiliarias_matriz</code></pre>
+        <p><b>Params: </b></p>
+        <br/>
+        <p>fecha_desde: Date from in YYYY-MM-DD format. Default 60 days ago</p>
+        <p>fecha_hasta: Date up to, in YYYY-MM-DD format. Default today.</p>
+        <br/>
+        <p>Python Example:</p>
+        <pre><code>import requests
+APITOKEN = 'MY-API-TOKEN'
+params = {"fecha_desde": "2023-06-01", "fecha_hasta": "2023-07-01"}
+headers = {'Authorization': APITOKEN}
+response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/inmobiliarias_matriz", params=params, headers = headers)
+print(response.json())
+        </code></pre>
+
+
+        <h3>/constructora_permiso</h3>
+        <p>'id_permiso' and 'id_constructora' from a given PE o AP. This endpoint maps columns id_permiso and 'constructora' from database</p>
+        <pre><code>GET /constructora_permiso</code></pre>
+        <p><b>Params: </b></p>
+        <br/>
+        <p>id_permiso: id of the PE or AP</p>
+        <br/>
+        <p>Python Example:</p>
+        <pre><code>import requests
+APITOKEN = 'MY-API-TOKEN'
+params = {"id_permiso": 7000}
+headers = {'Authorization': APITOKEN}
+response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/constructora_permiso", params=params, headers = headers)
+print(response.json())
+        </code></pre>
+
+
+        <h3>/constructoras_permiso</h3>
+        <p>'id_permiso' and 'id_contructora' records between two dates in database. The dates are either the creation date or the update date of the record.</p>
+        <pre><code>GET /contructoras_permiso</code></pre>
+        <p><b>Params: </b></p>
+        <br/>
+        <p>fecha_desde: Date from in YYYY-MM-DD format. Default 60 days ago</p>
+        <p>fecha_hasta: Date up to, in YYYY-MM-DD format. Default today.</p>
+        <br/>
+        <p>Python Example:</p>
+        <pre><code>import requests
+APITOKEN = 'MY-API-TOKEN'
+params = {"fecha_desde": "2023-06-01", "fecha_hasta": "2023-07-01"}
+headers = {'Authorization': APITOKEN}
+response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/constructoras_permiso", params=params, headers = headers)
+print(response.json())
+        </code></pre>
+
+
+
+
+        <h3>/arquitecto_permiso</h3>
+        <p>'id_permiso' and 'id_arquitecto' from a given PE o AP. This endpoint maps columns id_permiso and 'arquitecto' from database. One to many relationship.</p>
+        <pre><code>GET /arquitecto_permiso</code></pre>
+        <p><b>Params: </b></p>
+        <br/>
+        <p>id_permiso: id of the PE or AP</p>
+        <br/>
+        <p>Python Example:</p>
+        <pre><code>import requests
+APITOKEN = 'MY-API-TOKEN'
+params = {"id_permiso": 7000}
+headers = {'Authorization': APITOKEN}
+response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/arquitecto_permiso", params=params, headers = headers)
+print(response.json())
+        </code></pre>
+
+
+
+        <h3>/arquitectos_permiso</h3>
+        <p>'id_permiso' and 'id_arquitecto' records between two dates in database. The dates are either the creation date or the update date of the record. One to many relationship</p>
+        <pre><code>GET /arquitectos_permiso</code></pre>
+        <p><b>Params: </b></p>
+        <br/>
+        <p>fecha_desde: Date from in YYYY-MM-DD format. Default 60 days ago</p>
+        <p>fecha_hasta: Date up to, in YYYY-MM-DD format. Default today.</p>
+        <br/>
+        <p>Python Example:</p>
+        <pre><code>import requests
+APITOKEN = 'MY-API-TOKEN'
+params = {"fecha_desde": "2023-06-01", "fecha_hasta": "2023-07-01"}
+headers = {'Authorization': APITOKEN}
+response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/arquitectos_permiso", params=params, headers = headers)
+print(response.json())
+        </code></pre>
+
+
+
+        <h3>/propietario_permiso</h3>
+        <p>'id_permiso' and 'id_propietario' from a given PE o AP. This endpoint maps columns id_permiso and 'propietario' from database. One to many relationship.</p>
+        <pre><code>GET /propietario_permiso</code></pre>
+        <p><b>Params: </b></p>
+        <br/>
+        <p>id_permiso: id of the PE or AP</p>
+        <br/>
+        <p>Python Example:</p>
+        <pre><code>import requests
+APITOKEN = 'MY-API-TOKEN'
+params = {"id_permiso": 7000}
+headers = {'Authorization': APITOKEN}
+response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/propietario_permiso", params=params, headers = headers)
+print(response.json())
+        </code></pre>
+
+
+        <h3>/propietarios_permiso</h3>
+        <p>'id_permiso' and 'id_propietario' records between two dates in database. The dates are either the creation date or the update date of the record. One to many relationship</p>
+        <pre><code>GET /propietarios_permiso</code></pre>
+        <p><b>Params: </b></p>
+        <br/>
+        <p>fecha_desde: Date from in YYYY-MM-DD format. Default 60 days ago</p>
+        <p>fecha_hasta: Date up to, in YYYY-MM-DD format. Default today.</p>
+        <br/>
+        <p>Python Example:</p>
+        <pre><code>import requests
+APITOKEN = 'MY-API-TOKEN'
+params = {"fecha_desde": "2023-06-01", "fecha_hasta": "2023-07-01"}
+headers = {'Authorization': APITOKEN}
+response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/propietarios_permiso", params=params, headers = headers)
+print(response.json())
+        </code></pre>
+        
+
+
 
 
       </article>
