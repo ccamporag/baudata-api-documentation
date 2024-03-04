@@ -262,9 +262,6 @@ print(response.json())
         </code></pre>
 
 
-
-
-
         <h3>/inmobiliarias</h3>
         <p>Retrieve information about developers</p>
         <pre><code>GET /inmobiliarias?n=N</code></pre>
@@ -329,7 +326,7 @@ print(response.json())
 
         <h3>/arquitectos</h3>
         <p>Retrieve contact information about architects</p>
-        <pre><code>GET /arquitectos</code></pre>
+        <pre><code>GET /arquitectos?n=N</code></pre>
         <p><b>Params: </b></p>
         <br/>
         <p>n: Number of architects ordered by square meters of PE (integer)</p>
@@ -361,7 +358,7 @@ print(response.json())
 
         <h3>/imagenes</h3>
         <p>Retrieve images from a given PE</p>
-        <pre><code>GET /imagenes</code></pre>
+        <pre><code>GET /imagenes?id_permiso=ID</code></pre>
         <p><b>Params: </b></p>
         <br/>
         <p>id_permiso: id of the PE</p>
@@ -572,7 +569,7 @@ print(response.json())
 
   <footer>
     <img src="https://baudata.s3.sa-east-1.amazonaws.com/logo_baudata_svg.svg" alt="BauData" width="150">
-    <p>&copy; 2024 BauData. All rights reserved.</p>
+    <p>&copy; 2023 BauData. All rights reserved.</p>
   </footer>
 </body>
 </html>
