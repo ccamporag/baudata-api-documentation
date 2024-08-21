@@ -11,8 +11,10 @@
   <header>
     <h1>BauData API Documentation V 1.0</h1>
     <h3>Request your API token at contacto@baudata.cl</h3>
+    <h4>Please note: max response in 5mb</h3>
     <!-- <p>Welcome to the comprehensive documentation of our API. Here you'll find everything you need to know to integrate with our services.</p> -->
   </header>
+
 
   <!-- <nav>
     <ul>
@@ -30,7 +32,7 @@
     <section id="endpoints">
       <h2>Endpoints</h2>
       <article class="endpoint">
-        <h3>/permiso</h3>
+        <h3 id="permiso">/permiso</h3>
         <p>Retrieve information about an individual PE by its id</p>
         <pre><code>GET /permiso?id=ID_PE</code></pre>
         <p>Python Example:</p>
@@ -554,22 +556,34 @@ headers = {'Authorization': APITOKEN}
 response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/propietarios_permiso", params=params, headers = headers)
 print(response.json())
         </code></pre>
+
+
+        <h3>/obras_preliminares</h3>
+        <p>Authorizations for preliminary works/demolition</p>
+        <pre><code>GET /obras_preliminares</code></pre>
+        <p><b>Params: </b></p>
+        <br/>
+        <p>fecha_desde: Date from in YYYY-MM-DD format. Default 60 days ago</p>
+        <p>fecha_hasta: Date up to, in YYYY-MM-DD format. Default today.</p>
+        <br/>
+        <p>Python Example:</p>
+        <pre><code>import requests
+APITOKEN = 'MY-API-TOKEN'
+params = {"fecha_desde": "2024-06-01", "fecha_hasta": "2024-01-01"}
+headers = {'Authorization': APITOKEN}
+response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/obras_preliminares", params=params, headers = headers)
+print(response.json())
+        </code></pre>
         
-
-
-
-
       </article>
-      <!-- Add more endpoints as needed -->
-    </section>
 
-    <!-- Rest of the sections... -->
+    </section>
 
   </main>
 
   <footer>
     <img src="https://baudata.s3.sa-east-1.amazonaws.com/logo_baudata_svg.svg" alt="BauData" width="150">
-    <p>&copy; 2023 BauData. All rights reserved.</p>
+    <p>&copy; 2024 BauData. All rights reserved.</p>
   </footer>
 </body>
 </html>
