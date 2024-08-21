@@ -556,15 +556,15 @@ headers = {'Authorization': APITOKEN}
 response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/propietarios_permiso", params=params, headers = headers)
 print(response.json())
         </code></pre>
-
-
         <h3>/obras_preliminares</h3>
         <p>Authorizations for preliminary works/demolition</p>
         <pre><code>GET /obras_preliminares</code></pre>
         <p><b>Params: </b></p>
         <br/>
-        <p>fecha_desde: Date from in YYYY-MM-DD format. Default 60 days ago</p>
-        <p>fecha_hasta: Date up to, in YYYY-MM-DD format. Default today.</p>
+        <p>fecha_desde: Date of document from in YYYY-MM-DD format. Default 60 days ago</p>
+        <p>fecha_hasta: Date of document up to, in YYYY-MM-DD format. Default today.</p>
+        <p>fecha_ingreso_desde: Date of entry into the baudata database (from) in YYYY-MM-DD format. Default is 2022-01-01.</p>
+        <p>fecha_ingreso_desde: Date of entry into the baudata database (up to) in YYYY-MM-DD format. Default is today.</p>
         <br/>
         <p>Python Example:</p>
         <pre><code>import requests
