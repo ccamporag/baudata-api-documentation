@@ -176,7 +176,7 @@ print(response.json())
         <p>fecha_permiso_hasta: Building permit date (up to) in YYYY-MM-DD format. Default is today.</p>
         <p>fecha_actualizado_desde: Last update of the record in YYYY-MM-DD format (from). Default is 2020-01-01.</p>
         <p>fecha_actualizado_hasta: Last update of the record in YYYY-MM-DD format (up to). Default is today.</p>
-        <p>superficie_desde: PE square meters (from). Default is 0 m2</p>
+        <p>superficie_desde: PE square meters (from). Default is 0</p>
         <p>superficie_hasta: PE square meters (up to). Default is 10.000.000 m2</p>
         <br/>
         <p>Python Example:</p>
@@ -410,17 +410,12 @@ print(response.json())
         <h3>/inmobiliarias_permiso</h3>
         <p>'id_permiso' and 'inmobiliaria' records between two dates in database. The dates are either the creation date or the update date of the record.</p>
         <pre><code>GET /inmobiliarias_permiso</code></pre>
-        <p><b>Params: </b></p>
-        <br/>
-        <p>fecha_desde: Date from in YYYY-MM-DD format. Default 60 days ago</p>
-        <p>fecha_hasta: Date up to, in YYYY-MM-DD format. Default today.</p>
-        <br/>
+        <p><b>Params: NO PARAMS</b></p>
         <p>Python Example:</p>
         <pre><code>import requests
 APITOKEN = 'MY-API-TOKEN'
-params = {"fecha_desde": "2023-06-01", "fecha_hasta": "2023-07-01"}
 headers = {'Authorization': APITOKEN}
-response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/inmobiliarias_permiso", params=params, headers = headers)
+response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/inmobiliarias_permiso",headers = headers)
 print(response.json())
         </code></pre>
 
@@ -446,17 +441,12 @@ print(response.json())
         <h3>/inmobiliarias_matriz</h3>
         <p>'id_permiso' and 'inmobiliaria_matriz' records between two dates in database. The dates are either the creation date or the update date of the record.</p>
         <pre><code>GET /inmobiliarias_matriz</code></pre>
-        <p><b>Params: </b></p>
-        <br/>
-        <p>fecha_desde: Date from in YYYY-MM-DD format. Default 60 days ago</p>
-        <p>fecha_hasta: Date up to, in YYYY-MM-DD format. Default today.</p>
-        <br/>
+        <p><b>Params: NO PARAMS</b></p>
         <p>Python Example:</p>
         <pre><code>import requests
 APITOKEN = 'MY-API-TOKEN'
-params = {"fecha_desde": "2023-06-01", "fecha_hasta": "2023-07-01"}
 headers = {'Authorization': APITOKEN}
-response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/inmobiliarias_matriz", params=params, headers = headers)
+response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/inmobiliarias_matriz", headers = headers)
 print(response.json())
         </code></pre>
 
@@ -481,17 +471,12 @@ print(response.json())
         <h3>/constructoras_permiso</h3>
         <p>'id_permiso' and 'id_contructora' records between two dates in database. The dates are either the creation date or the update date of the record.</p>
         <pre><code>GET /contructoras_permiso</code></pre>
-        <p><b>Params: </b></p>
-        <br/>
-        <p>fecha_desde: Date from in YYYY-MM-DD format. Default 60 days ago</p>
-        <p>fecha_hasta: Date up to, in YYYY-MM-DD format. Default today.</p>
-        <br/>
+        <p><b>Params: NO PARAMS</b></p>
         <p>Python Example:</p>
         <pre><code>import requests
 APITOKEN = 'MY-API-TOKEN'
-params = {"fecha_desde": "2023-06-01", "fecha_hasta": "2023-07-01"}
 headers = {'Authorization': APITOKEN}
-response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/constructoras_permiso", params=params, headers = headers)
+response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/constructoras_permiso", headers = headers)
 print(response.json())
         </code></pre>
 
@@ -519,17 +504,12 @@ print(response.json())
         <h3>/arquitectos_permiso</h3>
         <p>'id_permiso' and 'id_arquitecto' records between two dates in database. The dates are either the creation date or the update date of the record. One to many relationship</p>
         <pre><code>GET /arquitectos_permiso</code></pre>
-        <p><b>Params: </b></p>
-        <br/>
-        <p>fecha_desde: Date from in YYYY-MM-DD format. Default 60 days ago</p>
-        <p>fecha_hasta: Date up to, in YYYY-MM-DD format. Default today.</p>
-        <br/>
+        <p><b>Params: NO PARAMS</b></p>
         <p>Python Example:</p>
         <pre><code>import requests
 APITOKEN = 'MY-API-TOKEN'
-params = {"fecha_desde": "2023-06-01", "fecha_hasta": "2023-07-01"}
 headers = {'Authorization': APITOKEN}
-response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/arquitectos_permiso", params=params, headers = headers)
+response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/arquitectos_permiso", headers = headers)
 print(response.json())
         </code></pre>
 
@@ -555,17 +535,12 @@ print(response.json())
         <h3>/propietarios_permiso</h3>
         <p>'id_permiso' and 'id_propietario' records between two dates in database. The dates are either the creation date or the update date of the record. One to many relationship</p>
         <pre><code>GET /propietarios_permiso</code></pre>
-        <p><b>Params: </b></p>
-        <br/>
-        <p>fecha_desde: Date from in YYYY-MM-DD format. Default 60 days ago</p>
-        <p>fecha_hasta: Date up to, in YYYY-MM-DD format. Default today.</p>
-        <br/>
+        <p><b>Params: NO PARAMS</b></p>
         <p>Python Example:</p>
         <pre><code>import requests
 APITOKEN = 'MY-API-TOKEN'
-params = {"fecha_desde": "2023-06-01", "fecha_hasta": "2023-07-01"}
 headers = {'Authorization': APITOKEN}
-response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/propietarios_permiso", params=params, headers = headers)
+response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/propietarios_permiso", headers = headers)
 print(response.json())
         </code></pre>
         
