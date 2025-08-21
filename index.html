@@ -10,8 +10,11 @@
 <body>
   <header>
     <h1>BauData API Documentation V 1.0</h1>
-    <h3>Request your API token at contacto@baudata.cl</h3>
+    <h2>IMPORTANT UPDATE: The main url has changed to:</h3>
+    <h3>https://vl1t3cda4a.execute-api.us-east-1.amazonaws.com</h3>
+    <h4>Request your API token at contacto@baudata.cl</h3>
     <h4>Please note: max response is 5mb</h3>
+    
     <!-- <p>Welcome to the comprehensive documentation of our API. Here you'll find everything you need to know to integrate with our services.</p> -->
   </header>
 
@@ -36,12 +39,14 @@
         <p>Retrieve information about an individual PE by its id</p>
         <pre><code>GET /permiso?id=ID_PE</code></pre>
         <p>Python Example:</p>
-        <pre><code>import requests
-APITOKEN = 'MY-API-TOKEN'
-params = {"id": 7000}
-headers = {'Authorization':APITOKEN}
-response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/permiso", params=params, headers = headers)
-print(response.json())
+        <pre><code>
+                import requests
+                url = 'https://vl1t3cda4a.execute-api.us-east-1.amazonaws.com'
+                APITOKEN = 'MY-API-TOKEN'
+                params = {"id": 7000}
+                headers = {'Authorization':APITOKEN}
+                response = requests.get(f"{url}/permiso", params=params, headers = headers)
+                print(response.json())
         </code></pre>
 
         <pre><code>
@@ -104,7 +109,7 @@ print(response.json())
                 "fecha_obra_gruesa": "2022-02-21T00:00:00.000",
                 "fecha_terminaciones": "2022-06-24T00:00:00.000",
                 "fecha_terminado": "2023-04-15T00:00:00.000",
-                "pdf_permiso": "https://baudata.s3-sa-east-1.amazonaws.com/pdf/2021-05-29 03:36:16 N55-02-2021-PERMISO-EDIFICACION-Nº14.pdf",
+                "pdf_permiso": "https://baudata-2025.s3.us-east-1.amazonaws.com/pdf/2021-05-29 03:36:16 N55-02-2021-PERMISO-EDIFICACION-Nº14.pdf",
                 "url_proyecto": "https://www.parqueavellano.cl/parque-laguna-verde-2.php",
                 "fecha_actualizado": "2022-04-27T00:00:00.000"
             }
@@ -115,11 +120,13 @@ print(response.json())
         <p>Retrieve information about an individual AP by its id</p>
         <pre><code>GET /anteproyecto?id=ID_AP</code></pre>
         <p>Python Example:</p>
-        <pre><code>import requests
+        <pre><code>
+                import requests
+                url = 'https://vl1t3cda4a.execute-api.us-east-1.amazonaws.com'
 APITOKEN = 'MY-API-TOKEN'
 params = {"id": 5454}
 headers = {'Authorization': APITOKEN}
-response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/anteproyecto", params=params, headers = headers)
+response = requests.get(f"{url}/anteproyecto", params=params, headers = headers)
 print(response.json())
         </code></pre>
         <p>Output</p>
@@ -159,7 +166,7 @@ print(response.json())
                 "rol_sii": "3600-2/1",
                 "dfl2": null,
                 "ds19": null,
-                "pdf_permiso": "https://baudata.s3-sa-east-1.amazonaws.com/pdf/2021-01-28 20:23:10 SAN JOAQUIN_AP-126-2019.pdf",
+                "pdf_permiso": "https://baudata-2025.s3.us-east-1.amazonaws.com/pdf/2021-01-28 20:23:10 SAN JOAQUIN_AP-126-2019.pdf",
                 "fecha_actualizado": "2022-04-27T00:00:00.000"
             }
         ]
@@ -181,10 +188,11 @@ print(response.json())
         <br/>
         <p>Python Example:</p>
         <pre><code>import requests
+url = 'https://vl1t3cda4a.execute-api.us-east-1.amazonaws.com'
 APITOKEN = 'MY-API-TOKEN'
 params = {"fecha_permiso_desde": "2023-07-01", "fecha_permiso_hasta": "2023-07-15", "superficie_desde: 1000"}
 headers = {'Authorization': APITOKEN}
-response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/permisos", params=params, headers = headers)
+response = requests.get(f"{url}/permisos", params=params, headers = headers)
 print(response.json())
         </code></pre>
 
@@ -205,10 +213,11 @@ print(response.json())
         <br/>
         <p>Python Example:</p>
         <pre><code>import requests
+url = 'https://vl1t3cda4a.execute-api.us-east-1.amazonaws.com'
 APITOKEN = 'MY-API-TOKEN'
 params = {"fecha_permiso_desde": "2023-07-01", "fecha_permiso_hasta": "2023-07-15"}
 headers = {'Authorization': APITOKEN}
-response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/anteproyectos", params=params, headers = headers)
+response = requests.get(f"{url}/anteproyectos", params=params, headers = headers)
 print(response.json())
         </code></pre>
 
@@ -221,12 +230,14 @@ print(response.json())
         <p>n: Number of contractors to retrieve. The contractors are ordered by square meters of building permits, for example, n = 10 will return the top 10 contractors in the database. Default is n = 100000</p>
         <br/>
         <p>Python Example:</p>
-        <pre><code>import requests
-APITOKEN = 'MY-API-TOKEN'
-params = {"n": 10}
-headers = {'Authorization': APITOKEN}
-response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/constructoras", params=params, headers = headers)
-print(response.json())
+        <pre><code>
+        import requests
+        url = 'https://vl1t3cda4a.execute-api.us-east-1.amazonaws.com'
+        APITOKEN = 'MY-API-TOKEN'
+        params = {"n": 10}
+        headers = {'Authorization': APITOKEN}
+        response = requests.get(f"{url}/constructoras", params=params, headers = headers)
+        print(response.json())
         </code></pre>
 
         <h3>/contactos_constructoras</h3>
@@ -235,11 +246,13 @@ print(response.json())
         <p><b>Params: no params</b></p>
         <br/>
         <p>Python Example:</p>
-        <pre><code>import requests
-APITOKEN = 'MY-API-TOKEN'
-headers = {'Authorization': APITOKEN}
-response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/contactos_constructoras", headers = headers)
-print(response.json())
+        <pre><code>
+                import requests
+                url = 'https://vl1t3cda4a.execute-api.us-east-1.amazonaws.com'
+                APITOKEN = 'MY-API-TOKEN'
+                headers = {'Authorization': APITOKEN}
+                response = requests.get(f"{url}/contactos_constructoras", headers = headers)
+                print(response.json())
         </code></pre>
 
 
@@ -251,12 +264,14 @@ print(response.json())
         <p>id_constructora: id of the contractor (integer)</p>
         <br/>
         <p>Python Example:</p>
-        <pre><code>import requests
-APITOKEN = 'MY-API-TOKEN'
-params = {"id_constructora": 7}
-headers = {'Authorization': APITOKEN}
-response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/constructora", params=params, headers = headers)
-print(response.json())
+        <pre><code>
+        import requests
+        url = 'https://vl1t3cda4a.execute-api.us-east-1.amazonaws.com'
+        APITOKEN = 'MY-API-TOKEN'
+        params = {"id_constructora": 7}
+        headers = {'Authorization': APITOKEN}
+        response = requests.get(f"{url}/constructora", params=params, headers = headers)
+        print(response.json())
         </code></pre>
 
         <h3>/contactos_constructora</h3>
@@ -267,12 +282,14 @@ print(response.json())
         <p>id_constructora: id of the contractor (integer)</p>
         <br/>
         <p>Python Example:</p>
-        <pre><code>import requests
-APITOKEN = 'MY-API-TOKEN'
-params = {"id_constructora": 7}
-headers = {'Authorization': APITOKEN}
-response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/contactos_constructora", params=params, headers = headers)
-print(response.json())
+        <pre><code>
+                import requests
+                url = 'https://vl1t3cda4a.execute-api.us-east-1.amazonaws.com'
+                APITOKEN = 'MY-API-TOKEN'
+                params = {"id_constructora": 7}
+                headers = {'Authorization': APITOKEN}
+                response = requests.get(f"{url}/contactos_constructora", params=params, headers = headers)
+                print(response.json())
         </code></pre>
 
 
@@ -284,12 +301,14 @@ print(response.json())
         <p>n: Number of real state developers to retrieve. The developers are ordered by square meters of building permits, for example, n = 10 will return the top 10 developers in the database. Default is n = 100000</p>
         <br/>
         <p>Python Example:</p>
-        <pre><code>import requests
-APITOKEN = 'MY-API-TOKEN'
-params = {"n": 10}
-headers = {'Authorization': APITOKEN}
-response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/inmobiliarias", params=params, headers = headers)
-print(response.json())
+        <pre><code>
+        import requests
+        url = 'https://vl1t3cda4a.execute-api.us-east-1.amazonaws.com'
+        APITOKEN = 'MY-API-TOKEN'
+        params = {"n": 10}
+        headers = {'Authorization': APITOKEN}
+        response = requests.get(f"{url}/inmobiliarias", params=params, headers = headers)
+        print(response.json())
         </code></pre>
 
         <h3>/contactos_inmobiliarias</h3>
@@ -298,11 +317,13 @@ print(response.json())
         <p><b>Params: no params</b></p>
         <br/>
         <p>Python Example:</p>
-        <pre><code>import requests
-APITOKEN = 'MY-API-TOKEN'
-headers = {'Authorization': APITOKEN}
-response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/contactos_inmobiliarias", headers = headers)
-print(response.json())
+        <pre><code>
+                import requests
+                url = 'https://vl1t3cda4a.execute-api.us-east-1.amazonaws.com'
+                APITOKEN = 'MY-API-TOKEN'
+                headers = {'Authorization': APITOKEN}
+                response = requests.get(f"{url}/contactos_inmobiliarias", headers = headers)
+                print(response.json())
         </code></pre>
 
 
@@ -314,12 +335,14 @@ print(response.json())
         <p>id_inmobiliaria: id of the developer (integer)</p>
         <br/>
         <p>Python Example:</p>
-        <pre><code>import requests
-APITOKEN = 'MY-API-TOKEN'
-params = {"id_inmobiliaria": 50}
-headers = {'Authorization': APITOKEN}
-response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/inmobiliaria", params=params, headers = headers)
-print(response.json())
+        <pre><code>
+                import requests
+                url = 'https://vl1t3cda4a.execute-api.us-east-1.amazonaws.com'
+                APITOKEN = 'MY-API-TOKEN'
+                params = {"id_inmobiliaria": 50}
+                headers = {'Authorization': APITOKEN}
+                response = requests.get(f"{url}/inmobiliaria", params=params, headers = headers)
+                print(response.json())
         </code></pre>
 
         <h3>/contactos_inmobiliaria</h3>
@@ -330,12 +353,14 @@ print(response.json())
         <p>id_inmobiliaria: id of the developer (integer)</p>
         <br/>
         <p>Python Example:</p>
-        <pre><code>import requests
-APITOKEN = 'MY-API-TOKEN'
-params = {"id_inmobiliaria": 50}
-headers = {'Authorization': APITOKEN}
-response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/contactos_inmobiliaria", params=params, headers = headers)
-print(response.json())
+        <pre><code>
+                import requests
+                url = 'https://vl1t3cda4a.execute-api.us-east-1.amazonaws.com'
+                APITOKEN = 'MY-API-TOKEN'
+                params = {"id_inmobiliaria": 50}
+                headers = {'Authorization': APITOKEN}
+                response = requests.get(f"{url}/contactos_inmobiliaria", params=params, headers = headers)
+                print(response.json())
         </code></pre>
 
         <h3>/arquitectos</h3>
@@ -346,12 +371,14 @@ print(response.json())
         <p>n: Number of architects ordered by square meters of PE (integer)</p>
         <br/>
         <p>Python Example:</p>
-        <pre><code>import requests
-APITOKEN = 'MY-API-TOKEN'
-params = {"n": 50}
-headers = {'Authorization': APITOKEN}
-response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/arquitectos", params=params, headers = headers)
-print(response.json())
+        <pre><code>
+                import requests
+                url = 'https://vl1t3cda4a.execute-api.us-east-1.amazonaws.com'
+                APITOKEN = 'MY-API-TOKEN'
+                params = {"n": 50}
+                headers = {'Authorization': APITOKEN}
+                response = requests.get(f"{url}/arquitectos", params=params, headers = headers)
+                print(response.json())
         </code></pre>
 
         <h3>/arquitecto</h3>
@@ -362,12 +389,14 @@ print(response.json())
         <p>id_arquitecto: id of the architect</p>
         <br/>
         <p>Python Example:</p>
-        <pre><code>import requests
-APITOKEN = 'MY-API-TOKEN'
-params = {"id_arquitecto": 250}
-headers = {'Authorization': APITOKEN}
-response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/arquitecto", params=params, headers = headers)
-print(response.json())
+        <pre><code>
+                import requests
+                url = 'https://vl1t3cda4a.execute-api.us-east-1.amazonaws.com'
+                APITOKEN = 'MY-API-TOKEN'
+                params = {"id_arquitecto": 250}
+                headers = {'Authorization': APITOKEN}
+                response = requests.get(f"{url}/arquitecto", params=params, headers = headers)
+                print(response.json())
         </code></pre>
 
         <h3>/imagenes</h3>
@@ -378,12 +407,14 @@ print(response.json())
         <p>id_permiso: id of the PE</p>
         <br/>
         <p>Python Example:</p>
-        <pre><code>import requests
-APITOKEN = 'MY-API-TOKEN'
-params = {"id_permiso": 7000}
-headers = {'Authorization': APITOKEN}
-response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/imagenes", params=params, headers = headers)
-print(response.json())
+        <pre><code>
+                import requests
+                url = 'https://vl1t3cda4a.execute-api.us-east-1.amazonaws.com'
+                APITOKEN = 'MY-API-TOKEN'
+                params = {"id_permiso": 7000}
+                headers = {'Authorization': APITOKEN}
+                response = requests.get(f"{url}/imagenes", params=params, headers = headers)
+                print(response.json())
         </code></pre>
 
 
@@ -396,27 +427,31 @@ print(response.json())
         <p>id_permiso: id of the PE or AP</p>
         <br/>
         <p>Python Example:</p>
-        <pre><code>import requests
-APITOKEN = 'MY-API-TOKEN'
-params = {"id_permiso": 7000}
-headers = {'Authorization': APITOKEN}
-response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/inmobiliaria_permiso", params=params, headers = headers)
-print(response.json())
+        <pre><code>
+                import requests
+                url = 'https://vl1t3cda4a.execute-api.us-east-1.amazonaws.com'
+                APITOKEN = 'MY-API-TOKEN'
+                params = {"id_permiso": 7000}
+                headers = {'Authorization': APITOKEN}
+                response = requests.get(f"{url}/inmobiliaria_permiso", params=params, headers = headers)
+                print(response.json())
         </code></pre>
 
 
 
 
         <h3>/inmobiliarias_permiso</h3>
-        <p>'id_permiso' and 'inmobiliaria' records between two dates in database. The dates are either the creation date or the update date of the record.</p>
+        <p>'id_permiso' and 'inmobiliaria' records between two dates in database.</p>
         <pre><code>GET /inmobiliarias_permiso</code></pre>
         <p><b>Params: NO PARAMS</b></p>
         <p>Python Example:</p>
-        <pre><code>import requests
-APITOKEN = 'MY-API-TOKEN'
-headers = {'Authorization': APITOKEN}
-response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/inmobiliarias_permiso",headers = headers)
-print(response.json())
+        <pre><code>
+                import requests
+                url = 'https://vl1t3cda4a.execute-api.us-east-1.amazonaws.com'
+                APITOKEN = 'MY-API-TOKEN'
+                headers = {'Authorization': APITOKEN}
+                response = requests.get(f"{url}/inmobiliarias_permiso",headers = headers)
+                print(response.json())
         </code></pre>
 
 
@@ -429,25 +464,29 @@ print(response.json())
         <p>id_permiso: id of the PE or AP</p>
         <br/>
         <p>Python Example:</p>
-        <pre><code>import requests
-APITOKEN = 'MY-API-TOKEN'
-params = {"id_permiso": 7000}
-headers = {'Authorization': APITOKEN}
-response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/inmobiliaria_matriz", params=params, headers = headers)
-print(response.json())
+        <pre><code>
+                import requests
+                url = 'https://vl1t3cda4a.execute-api.us-east-1.amazonaws.com'
+                APITOKEN = 'MY-API-TOKEN'
+                params = {"id_permiso": 7000}
+                headers = {'Authorization': APITOKEN}
+                response = requests.get(f"{url}/inmobiliaria_matriz", params=params, headers = headers)
+                print(response.json())
         </code></pre>
 
 
         <h3>/inmobiliarias_matriz</h3>
-        <p>'id_permiso' and 'inmobiliaria_matriz' records between two dates in database. The dates are either the creation date or the update date of the record.</p>
+        <p>'id_permiso' and 'inmobiliaria_matriz' records between two dates in database.</p>
         <pre><code>GET /inmobiliarias_matriz</code></pre>
         <p><b>Params: NO PARAMS</b></p>
         <p>Python Example:</p>
-        <pre><code>import requests
-APITOKEN = 'MY-API-TOKEN'
-headers = {'Authorization': APITOKEN}
-response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/inmobiliarias_matriz", headers = headers)
-print(response.json())
+        <pre><code>
+                import requests
+                url = 'https://vl1t3cda4a.execute-api.us-east-1.amazonaws.com'
+                APITOKEN = 'MY-API-TOKEN'
+                headers = {'Authorization': APITOKEN}
+                response = requests.get(f"{url}/inmobiliarias_matriz", headers = headers)
+                print(response.json())
         </code></pre>
 
 
@@ -459,25 +498,29 @@ print(response.json())
         <p>id_permiso: id of the PE or AP</p>
         <br/>
         <p>Python Example:</p>
-        <pre><code>import requests
-APITOKEN = 'MY-API-TOKEN'
-params = {"id_permiso": 7000}
-headers = {'Authorization': APITOKEN}
-response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/constructora_permiso", params=params, headers = headers)
-print(response.json())
+        <pre><code>
+                import requests
+                url = 'https://vl1t3cda4a.execute-api.us-east-1.amazonaws.com'
+                APITOKEN = 'MY-API-TOKEN'
+                params = {"id_permiso": 7000}
+                headers = {'Authorization': APITOKEN}
+                response = requests.get(f"{url}/constructora_permiso", params=params, headers = headers)
+                print(response.json())
         </code></pre>
 
 
         <h3>/constructoras_permiso</h3>
-        <p>'id_permiso' and 'id_contructora' records between two dates in database. The dates are either the creation date or the update date of the record.</p>
+        <p>'id_permiso' and 'id_contructora' records between two dates in database.</p>
         <pre><code>GET /contructoras_permiso</code></pre>
         <p><b>Params: NO PARAMS</b></p>
         <p>Python Example:</p>
-        <pre><code>import requests
-APITOKEN = 'MY-API-TOKEN'
-headers = {'Authorization': APITOKEN}
-response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/constructoras_permiso", headers = headers)
-print(response.json())
+        <pre><code>
+                import requests
+                url = 'https://vl1t3cda4a.execute-api.us-east-1.amazonaws.com'
+                APITOKEN = 'MY-API-TOKEN'
+                headers = {'Authorization': APITOKEN}
+                response = requests.get(f"{url}/constructoras_permiso", headers = headers)
+                print(response.json())
         </code></pre>
 
 
@@ -491,26 +534,30 @@ print(response.json())
         <p>id_permiso: id of the PE or AP</p>
         <br/>
         <p>Python Example:</p>
-        <pre><code>import requests
-APITOKEN = 'MY-API-TOKEN'
-params = {"id_permiso": 7000}
-headers = {'Authorization': APITOKEN}
-response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/arquitecto_permiso", params=params, headers = headers)
-print(response.json())
+        <pre><code>
+                import requests
+                url = 'https://vl1t3cda4a.execute-api.us-east-1.amazonaws.com'
+                APITOKEN = 'MY-API-TOKEN'
+                params = {"id_permiso": 7000}
+                headers = {'Authorization': APITOKEN}
+                response = requests.get(f"{url}/arquitecto_permiso", params=params, headers = headers)
+                print(response.json())
         </code></pre>
 
 
 
         <h3>/arquitectos_permiso</h3>
-        <p>'id_permiso' and 'id_arquitecto' records between two dates in database. The dates are either the creation date or the update date of the record. One to many relationship</p>
+        <p>'id_permiso' and 'id_arquitecto' records between two dates in database. One to many relationship</p>
         <pre><code>GET /arquitectos_permiso</code></pre>
         <p><b>Params: NO PARAMS</b></p>
         <p>Python Example:</p>
-        <pre><code>import requests
-APITOKEN = 'MY-API-TOKEN'
-headers = {'Authorization': APITOKEN}
-response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/arquitectos_permiso", headers = headers)
-print(response.json())
+        <pre><code>
+                import requests
+                url = 'https://vl1t3cda4a.execute-api.us-east-1.amazonaws.com'
+                APITOKEN = 'MY-API-TOKEN'
+                headers = {'Authorization': APITOKEN}
+                response = requests.get(f"{url}/arquitectos_permiso", headers = headers)
+                print(response.json())
         </code></pre>
 
 
@@ -523,25 +570,29 @@ print(response.json())
         <p>id_permiso: id of the PE or AP</p>
         <br/>
         <p>Python Example:</p>
-        <pre><code>import requests
-APITOKEN = 'MY-API-TOKEN'
-params = {"id_permiso": 7000}
-headers = {'Authorization': APITOKEN}
-response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/propietario_permiso", params=params, headers = headers)
-print(response.json())
+        <pre><code>
+                import requests
+                url = 'https://vl1t3cda4a.execute-api.us-east-1.amazonaws.com'
+                APITOKEN = 'MY-API-TOKEN'
+                params = {"id_permiso": 7000}
+                headers = {'Authorization': APITOKEN}
+                response = requests.get(f"{url}/propietario_permiso", params=params, headers = headers)
+                print(response.json())
         </code></pre>
 
 
         <h3>/propietarios_permiso</h3>
-        <p>'id_permiso' and 'id_propietario' records between two dates in database. The dates are either the creation date or the update date of the record. One to many relationship</p>
+        <p>'id_permiso' and 'id_propietario' records between two dates in database. One to many relationship</p>
         <pre><code>GET /propietarios_permiso</code></pre>
         <p><b>Params: NO PARAMS</b></p>
         <p>Python Example:</p>
-        <pre><code>import requests
-APITOKEN = 'MY-API-TOKEN'
-headers = {'Authorization': APITOKEN}
-response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/propietarios_permiso", headers = headers)
-print(response.json())
+        <pre><code>
+                import requests
+                url = 'https://vl1t3cda4a.execute-api.us-east-1.amazonaws.com'
+                APITOKEN = 'MY-API-TOKEN'
+                headers = {'Authorization': APITOKEN}
+                response = requests.get(f"{url}/propietarios_permiso", headers = headers)
+                print(response.json())
         </code></pre>
         
         
@@ -556,12 +607,14 @@ print(response.json())
         <p>fecha_ingreso_desde: Date of entry into the baudata database (up to) in YYYY-MM-DD format. Default is today.</p>
         <br/>
         <p>Python Example:</p>
-        <pre><code>import requests
-APITOKEN = 'MY-API-TOKEN'
-params = {"fecha_desde": "2024-06-01", "fecha_hasta": "2024-01-01"}
-headers = {'Authorization': APITOKEN}
-response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/obras_preliminares", params=params, headers = headers)
-print(response.json())
+        <pre><code>
+                import requests
+                url = 'https://vl1t3cda4a.execute-api.us-east-1.amazonaws.com'
+                APITOKEN = 'MY-API-TOKEN'
+                params = {"fecha_desde": "2024-06-01", "fecha_hasta": "2024-01-01"}
+                headers = {'Authorization': APITOKEN}
+                response = requests.get(f"{url}/obras_preliminares", params=params, headers = headers)
+                print(response.json())
         </code></pre>
 
 
@@ -573,12 +626,14 @@ print(response.json())
         <p>year: year of PE/AP</p>
         <br/>
         <p>Python Example:</p>
-        <pre><code>import requests
-APITOKEN = 'MY-API-TOKEN'
-params = {"year": 2023}
-headers = {'Authorization': APITOKEN}
-response = requests.get("https://rf2d2rjlla.execute-api.sa-east-1.amazonaws.com/direcciones", params=params, headers = headers)
-print(response.json())
+        <pre><code>
+                import requests
+                url = 'https://vl1t3cda4a.execute-api.us-east-1.amazonaws.com'
+                APITOKEN = 'MY-API-TOKEN'
+                params = {"year": 2023}
+                headers = {'Authorization': APITOKEN}
+                response = requests.get(f"{url}/direcciones", params=params, headers = headers)
+                print(response.json())
         </code></pre>
 
 
@@ -590,8 +645,8 @@ print(response.json())
   </main>
 
   <footer>
-    <img src="https://baudata.s3.sa-east-1.amazonaws.com/logo_baudata_svg.svg" alt="BauData" width="150">
-    <p>&copy; 2024 BauData. All rights reserved. Updated at 2024-09-03</p>
+    <img src="https://baudata-2025.s3.us-east-1.amazonaws.com/logo_baudata_svg.svg" alt="BauData" width="150">
+    <p>&copy; 2025 BauData. All rights reserved. Updated at 2025-08-21</p>
   </footer>
 </body>
 </html>
